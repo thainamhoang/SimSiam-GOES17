@@ -9,7 +9,7 @@
 /hsv_cmap
 
 # __pycache__
-/__pycache__
+__pycache__/
 
 # Notebook ignore
 *.ipynb
