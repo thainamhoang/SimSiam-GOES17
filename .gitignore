@@ -1,0 +1,16 @@
+# IDE
+.idea
+
+# Cache for notebooks
+.ipynb_checkpoints
+
+# Cache for .nc
+/cache_storage
+/hsv_cmap
+
+# __pycache__
+/__pycache__
+
+# Notebook ignore
+*.ipynb
+
