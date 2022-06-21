@@ -28,7 +28,7 @@ class SimSiam(nn.Module):
                  pred_hidden_dim: int = 512,
                  output_dim: int = 2048):
         super(SimSiam, self).__init__()
-        self.encoder = encoder
+        self.encoder = encoder(num_classes=input_dim)
 
         self.projection_head = nn.Sequential(nn.Linear(input_dim, proj_hidden_dim, bias=False),
                                              nn.BatchNorm1d(proj_hidden_dim),
