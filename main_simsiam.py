@@ -269,15 +269,18 @@ if __name__ == "__main__":
     train_dataloader = goes17_dataloader(img_path=img_path,
                                          transform=get_train_transform(),
                                          batch_size=batch_size,
-                                         num_workers=num_workers)
+                                         num_workers=num_workers,
+                                         device=device)
 
     val_dataloader = goes17_dataloader(img_path=img_path,
                                        transform=get_train_transform(),
                                        batch_size=batch_size,
-                                       num_workers=num_workers)
+                                       num_workers=num_workers,
+                                       device=device)
 
     _train(train_dataloader=train_dataloader,
            val_dataloader=val_dataloader,
            model=model,
            optimizer=optimizer,
-           epochs=epochs)
+           epochs=epochs,
+           device=device)
