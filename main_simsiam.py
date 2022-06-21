@@ -213,7 +213,8 @@ def _train(train_dataloader: DataLoader,
         total_loss, total_std1, total_std2 = _train_one_epoch(dataloader=train_dataloader,
                                                               model=model,
                                                               loss_fn=loss_fn,
-                                                              optimizer=optimizer)
+                                                              optimizer=optimizer,
+                                                              device=device)
 
         print(f'Training loss: {total_loss}')
         print(f'Training STD1: {total_std1}')
@@ -221,7 +222,8 @@ def _train(train_dataloader: DataLoader,
 
         total_loss, total_std1, total_std2 = _val_one_epoch(dataloader=val_dataloader,
                                                             model=model,
-                                                            loss_fn=loss_fn)
+                                                            loss_fn=loss_fn,
+                                                            device=device)
 
         print(f'Validation loss: {total_loss}')
         print(f'Validation STD1: {total_std1}')
@@ -269,14 +271,12 @@ if __name__ == "__main__":
     train_dataloader = goes17_dataloader(img_path=img_path,
                                          transform=get_train_transform(),
                                          batch_size=batch_size,
-                                         num_workers=num_workers,
-                                         device=device)
+                                         num_workers=num_workers,)
 
     val_dataloader = goes17_dataloader(img_path=img_path,
                                        transform=get_train_transform(),
                                        batch_size=batch_size,
-                                       num_workers=num_workers,
-                                       device=device)
+                                       num_workers=num_workers,)
 
     _train(train_dataloader=train_dataloader,
            val_dataloader=val_dataloader,
